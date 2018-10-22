@@ -45,14 +45,23 @@ componentDidMount() {
     axios
       .post('/api/addVideos', {id:id})
       .then (res => { 
-        console.log(res.data) 
+        console.log(res.data)
+
+        let tempArr = this.state.favoritesList;
+        tempArr.push(res.data) 
         this.setState ({
-                      favoritesList: [res.data]
+                      favoritesList: [...tempArr]
         });
       })
                   // console.log(favoritesList)
   }
 
+  // onDelete(id) {
+  //   axios
+  //     .delete('/api/deleteVideos/:id')
+  //     .then (res => { console.log(res.data)}
+  // }
+  
     //pass inputbox value to search
     onSearch(value) {
       this.setState({ search: value });
@@ -60,14 +69,15 @@ componentDidMount() {
     
     render() {
 
-console.log(this.state.favoritesList)
+  console.log(this.state.favoritesList)
 
 
   let faveListToDisplay = this.state.favoritesList.map((element, index) => {
 
     console.log('element', element)
     return( 
-      <div key={index}>{element}</div> )
+      <div key={index}>{element}
+      <button onClick={this.onDelete}>Delete</button></div> )
       
       
   })
@@ -80,7 +90,6 @@ console.log(this.state.favoritesList)
 
 {/* Add to favorites onClick*/}
         <button onClick={() => this.onChangeFaves(element.id.videoId)}>Add to favorites</button>
-        <button>Delete from List</button>
         <button>Update List</button>
 
       </div>
@@ -106,4 +115,4 @@ console.log(this.state.favoritesList)
 
     )//return
   }//render
-}//class
+}

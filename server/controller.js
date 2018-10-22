@@ -10,8 +10,6 @@ module.exports = {
     addVideos: (req, res) => {
         favorites.push(req.body.id)
         res.status(200).send(favorites)
-
-        
     }, 
 
     deleteVideos: (req, res) => {
