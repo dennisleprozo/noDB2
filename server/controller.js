@@ -1,6 +1,6 @@
 let videoList = [];
 favorites = [];
-// let id = [0];
+let id = [0];
 
 module.exports = {
     getVideos: (req, res) => {
@@ -8,22 +8,22 @@ module.exports = {
     },
 
     addVideos: (req, res) => {
-        videoList.push(req.body.newVideoList)
-        res.status(200).send(videoList)
+        favorites.push(req.body.id)
+        res.status(200).send(favorites)
+
+        
     }, 
 
-    // deleteVideos: (req, res) => {
-        // index 
-        // id
-        // splice(index, 1)
-        // res.status(200).send(viodeoList)
-    // },
+    deleteVideos: (req, res) => {
+        favorites.delete(req.params)
+        splice(id, 1)
+        res.status(200).send(favorites)
+    },
 
     // updateVideos(req, res) => {
-        // index
-        // id === id
-        // videoList.push(favorites)
-        // res.status(200).send(videoList)
+    //     favorites.delete(req.params.id)
+    //     videoList.push(favorites)
+    //     res.status(200).send(videoList)
 
     // }
 

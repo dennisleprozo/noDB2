@@ -9,8 +9,9 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/api/videoList', controller.getVideos);
-app.post('/api/videolist', controller.addVideos);
-// app.delete('/api/playlist/:id', controller.deleteVideos);
+app.post('/api/addVideos', controller.addVideos);
+
+app.delete('/api/playlist/:id', controller.deleteVideos);
 // app.put('/api/videolist', controller.updateVideos);
 
 
