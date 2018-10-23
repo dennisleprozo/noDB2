@@ -19,7 +19,7 @@ export default class App extends Component {
 
 componentDidMount() {
   axios
-    .get(`https://www.googleapis.com/youtube/v3/search?q="CSS Trick"&maxResults=5&part=snippet&key=AIzaSyDA730GdaMcGcHc3y1sDDceTn3ZmBW1xDw`)
+    .get(`https://www.googleapis.com/youtube/v3/search?q="CSS Trick"&maxResults=5&part=snippet&key=API_KEY`)
     .then(res => { 
         console.log(res.data.items[0].snippet.title)
         this.setState({
@@ -30,7 +30,7 @@ componentDidMount() {
   //search external API
   searchVideo() {
     axios
-      .get(`https://www.googleapis.com/youtube/v3/search?q=${this.state.search}&maxResults=5&part=snippet&key=AIzaSyDA730GdaMcGcHc3y1sDDceTn3ZmBW1xDw`)
+      .get(`https://www.googleapis.com/youtube/v3/search?q=${this.state.search}&maxResults=5&part=snippet&key=API_KEY`)
       .then(res => { 
           console.log(res.data.items[0].snippet.title)
           this.setState({
